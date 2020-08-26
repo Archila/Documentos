@@ -30,14 +30,14 @@ $dictamen = "Dic. Ing. Industrial No. 12-2020";
 $fecha = "23 de junio de 2020";
 $carne="2631 93438 0901";
 $registro="201431445";
-$carrera="INGENIERIA INDUSTRIAL";
+$carrera=mb_strtoupper("INGENIERíA INDUSTRIAL");
 $curso="MATEMÁTICA APLICADA 1";
 $fecha_curso="15/01/2020";
 $nota="95";
 $creditos_obtenidos="262";
 $creditos_necesarios="250";
-$coordinador="INGA. CORALIA ANGÉLICA VLEÁSQUEZ COTÍ";
-$director = "MBA: VÍCTOR CAROL HERNÁNDEZ ";
+$coordinador="INGA. CORALIA ANGÉLICA VELÁSQUEZ COTÍ";
+$director = "MBA: VÍCTOR CAROL HERNÁNDEZ M";
 $expediente = "Exp. No. 26-2020";
 
 //Variables utilizando POST
@@ -165,14 +165,14 @@ $parte1 = 'Por este medio me permito informar a ustedes, que se ha recibido expe
 Carné No.
 <b>'.$carne.'</b>
 y Registro Académico No.
-<b>'.$registro.'</b>
+<b>'.$registro.',</b>
 quien solicita <b>CIERRE DE CURRÍCULO DE LA CARRERA DE '.$carrera.'</b>';
 
 $parte2 = 'Dicho expediente ha sido revisado por esta Coordinación de acuerdo a los datos de la
 Oficina de Registro y Control Académico del Centro Universitario de Occidente, de la Universidad de
 San Carlos de Guatemala, encontrándose que reúne los requisitos exigidos para tal efecto, por lo que se
 <b>EMITE DICTAMEN FAVORABLE,</b>
-A lo solicitado por el alumno mencionado.';
+a lo solicitado por el alumno mencionado.';
 
 $parte3 = 'Último curso aprobado
 <b>'.$curso.'</b>
@@ -194,7 +194,7 @@ $pdf->writeHTMLCell(216-$mi-$md, 30, 20, 120, $parte2, 0, 1, 0, true, 'J', true)
 $pdf->writeHTMLCell(216-$mi-$md, 15, 20, 145, $parte3, 0, 1, 0, true, 'J', true);
 
 $pdf->Cell($mi, 0, '', 0, 0, 'C', 0, '', 0); //Margen izquierdo de línea
-$pdf->Cell(110, 0, 'Sin otro particular, me es grato suscribirme, atentamente', 0, 1, 'L', 0, '', 0);
+$pdf->Cell(110, 0, 'Sin otro particular, me es grato suscribirme, atentamente.', 0, 1, 'L', 0, '', 0);
 
 $pdf->SetFont('helvetica', 'B', 11);
 $pdf->Cell($mi, 12, '', 0, 1, 'C', 0, '', 0); //Espacio en blanco
@@ -202,7 +202,7 @@ $pdf->Cell(108, 0, '', 0, 0, 'C', 0, '', 0); //Margen izquierdo de línea
 $pdf->Cell(90, 0, '"ID Y ENSEÑAD A TODOS"', 0, 0, 'L', 0, '', 0);
 
 $pdf->SetFont('helvetica', 'B', 10);
-$pdf->writeHTMLCell(106, 15, 108, 190, $parte4, 0, 1, 0, true, 'L', true);
+$pdf->writeHTMLCell(100, 15, 108, 190, $parte4, 0, 1, 0, true, 'L', true);
 
 $pdf->SetFont('helvetica', 'B', 11);
 $pdf->Cell($mi, 5, '', 0, 1, 'C', 0, '', 0); //Espacio en blanco
@@ -218,7 +218,7 @@ $pdf->Cell($mi+27, 0, '', 0, 0, 'C', 0, '', 0); //Margen izquierdo de línea
 $pdf->Cell(90, 0, 'CIENCIAS DE LA INGENIERÍA', 0, 1, 'L', 0, '', 0);
 
 $pdf->SetFont('helvetica', '', 8);
-$pdf->Cell($mi, 5, '', 0, 1, 'C', 0, '', 0); //Espacio en blanco
+$pdf->Cell($mi, 8, '', 0, 1, 'C', 0, '', 0); //Espacio en blanco
 $pdf->Cell($mi, 0, '', 0, 0, 'C', 0, '', 0); //Espacio en blanco
 $pdf->Cell(0, 0, 'c.c. Archivo', 0, 1, 'L', 0, '', 0);
 
@@ -232,6 +232,6 @@ $pdf->Cell(0, 0, $expediente, 0, 1, 'L', 0, '', 0);
 // ---------------------------------------------------------
 
 //Close and output PDF document
-$pdf->Output('cierre.pdf', 'I');
+$pdf->Output('acta_cierre.pdf', 'I');
 
 ?>

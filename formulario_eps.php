@@ -40,7 +40,7 @@ $carne = "2600300000901";
 $registro = "201331207";
 $asesor = "Ing. Mario Enrique Lopez Perez";
 $revisor = "Ing. Juan Carlos Ola Ruiz";
-$carrera_simple = "Civil";
+$carrera_simple = "CIVIL";
 $supervisor = mb_strtoupper("Ing. Alvaro Humberto Flores Aguilar");
 $nota = "98";
 $nota_letras = mb_strtoupper("Noventa y ocho");
@@ -132,7 +132,7 @@ $pdf->AddPage();
 //Cell($w, $h=0, $txt='', $border=0, $ln=0, $align='', $fill=0, $link='', $stretch=0, $ignore_min_height=false, $calign='T', $valign='M')
 
 //--------------------------Encabezado--------------------------
-$parte1 = $trans.'<br/>
+$parte1 = 'Trans. '.$trans.'<br/>
 Quetzaltenango, '
 .$fecha;
 
@@ -142,41 +142,42 @@ Coordinador de '.$carrera.'<br/>
 Centro Universitario de Occidente<br/>
 Edificio';
 
-$cuerpo = 'Para su conocimiento y efectos: transcribo el Acta No.
+$cuerpo = '<div style="LINE-HEIGHT:18px;">Para su conocimiento y efectos: transcribo el Acta No.
 <b>'.$acta.'</b>
 del libro para Actas Varias del Departamento del Ejercicio Profesional Supervisado (E.P.S.) de la División de Ciencias de la Ingeniería,
 que textualmente dice: "Acta No.
 <b>'.$acta.'</b>
 Quetzaltenango.
-'.$fecha_acta.'
+'.$fecha_acta.',
 siendo las
 '.$hora_acta.', el Coordinador del Ejercicio Profesional Supervisado
 '.$coordinador.' constituido en el departamento de Ejercicio Profesional Supervisado de las Carreras de Ingeniería
 en el Edificio de la División de Ciencias de la Ingeniería del Centro Universitario de Occidente, para hacer constar lo siguiente:
-<b>PRIMERO: </b> Se tiene a la vista el Informe final del Ejercicio Profesional Supervisado titulado  <br/>
-<b>'.$trabajo_graduacion.'</b>,
+<b>PRIMERO: </b>Se tiene a la vista el Informe final del Ejercicio Profesional Supervisado titulado
+<b>"'.$trabajo_graduacion.'"</b>,
 presentado por el estudiante
 <b>'.$estudiante.'</b>
 quien se identifica con carné universitario
 <b>'.$carne.'</b>
 y número de registro académico
-<b>'.$registro.'</b>
-, estudiante de la carrera de
-'.$carrera.'
-<b>SEGUNDO: </b> Se procede a la revisión de: A) El informe final del Ejercicio Profesional Supervisado. B) Verificación de los Dictámenes
+<b>'.$registro.'</b>,
+estudiante de la carrera de
+'.$carrera.'.
+<b>SEGUNDO: </b>Se procede a la revisión de: A) El informe final del Ejercicio Profesional Supervisado. B) Verificación de los Dictámenes
 satisfactorios del asesor:
 '.$asesor.'
 y del revisor
-'.$revisor.'
-, C) Dictamend del Supervisor del Ejercicio Profesional Supervisado de
+'.$revisor.',
+C) Dictamend del Supervisor del Ejercicio Profesional Supervisado de
 '.$carrera_simple.' '.$supervisor.'
-<b>TERCERO: </b> Después de revisar los documentos anteriores se procede a dar por: APROBADO el Ejercicio Profesional Supervisado con una
+<b>TERCERO: </b>Después de revisar los documentos anteriores se procede a dar por: APROBADO el Ejercicio Profesional Supervisado con una
 nota promedio de
 <b>'.$nota.'
 ('.$nota_letras.')</b>
-puntos en una escala de 1 a 100. CUARTO: No habiendo más que hacer constar, se da por terminada la presente en el mismo lugar y fecha, siendo las
+puntos en una escala de 1 a 100.
+<b>CUARTO: </b>No habiendo más que hacer constar, se da por terminada la presente en el mismo lugar y fecha, siendo las
 <b>'.$hora_final_acta.'.</b>
-Siendo leídos por los presentes damos fe.  FIRMAS ILEGIBLES”';
+Siendo leídos por los presentes damos fe.  FIRMAS ILEGIBLES”</div>';
 
 $pdf->SetFont('helvetica', '', 10);
 $pdf->writeHTMLCell(186-$mi, 30, $mi, 35, $parte1, 0, 0, 0, true, 'R', true);
@@ -225,6 +226,6 @@ $pdf->Cell(0, 0, 'LEADR/rem', 0, 1, 'L', 0, '', 0);
 // ---------------------------------------------------------
 
 //Close and output PDF document
-$pdf->Output('cierre.pdf', 'I');
+$pdf->Output('transcripcion_acta_eps.pdf', 'I');
 
 ?>

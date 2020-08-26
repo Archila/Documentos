@@ -26,7 +26,7 @@
 
 /*DECLARACION DE VARIABLES */
 $acta = "EPSI ABCD123";
-$hora = "14:20";
+$hora = "14:30";
 $dia = "22";
 $mes = "agosto";
 $año = "2020";
@@ -132,14 +132,12 @@ $cuerpo = '<div style="LINE-HEIGHT:28px;">En la ciudad de Quetzaltenango, siendo
 '.$hora.' horas del día
 '.$dia.' de '.$mes.' del año '.$año.',
 reunidos '.$virtual.' de la División de Ciencias de la Ingeniería del Centro Universitario de Occidente de la Universidad de San
-Carlos de Guatemala, los miembros del Tribunal Examinador en pleno, según nombramiento No.
-del libro para Actas Varias del Departamento del Ejercicio Profesional Supervisado (E.P.S.) de la División de Ciencias de la Ingeniería,
-que textualmente dice: "Acta No. '.$nombramiento.',
+Carlos de Guatemala, los miembros del Tribunal Examinador en pleno, según nombramiento No. '.$nombramiento.',
 Secretario '.$secretario.'
 Examinadores: a) '.$examinador1.' y
 b) '.$examinador2.'
-con el objeto de praticar el Examen Técnico Profesional previo a optar el título de Ingeniero '.$carrera.'
-en el grado académico de Liceniado, del estudiante:
+con el objeto de practicar el Examen Técnico Profesional previo a optar el título de Ingeniero '.$carrera.'
+en el grado académico de Licenciado, del estudiante:
 '.$estudiante.' carné No.
 '.$carne.' y Registro Académico No.
 '.$registro.', habiéndose procedido de la manera siguiente:
@@ -152,7 +150,7 @@ a calificar al estudiante obteniendo el mismo, una nota de '.$nota.',
 en escala de 0 a 100 puntos, por consiguiente el resultado es de: '.$resultado.',
 según normativo vigente.
 <b style="text-decoration: underline;">TERCERO:</b>
-No habiendo mas que hacer constar se da por terminada la presente en el mismo lugar y fecha, firmando la presente el trubunal
+No habiendo mas que hacer constar se da por terminada la presente en el mismo lugar y fecha, firmando la presente el tribunal
 examinador, siendo las '.$hora_final.' horas con '.$minutos_final.' minutos. DAMOS FE</div>';
 
 $pdf->SetFont('helvetica', '', 13);
@@ -163,11 +161,11 @@ $pdf->Cell(216-$mi-$md, $inte, 'ACTA NUMERO: '.$acta, 0, 1, 'L', 0, '', 0);
 
 $pdf->writeHTMLCell(216-$mi-$md, 120, $mi, 53, $cuerpo, 0, 1, 0, true, 'J', true);
 
-$pdf->writeHTMLCell(50, 5, $mi, 265, '', 'B', 1, 0, true, 'J', true);
-$pdf->writeHTMLCell(50, 5, $mi+102, 265, '', 'B', 1, 0, true, 'J', true);
+$pdf->writeHTMLCell(50, 5, $mi, 260, '', 'B', 1, 0, true, 'J', true);
+$pdf->writeHTMLCell(50, 5, $mi+102, 260, '', 'B', 1, 0, true, 'J', true);
 
-$pdf->writeHTMLCell(50, 5, $mi, 272, 'EXAMINADOR', '', 1, 0, true, 'C', true);
-$pdf->writeHTMLCell(50, 5, $mi+102, 272, 'EXAMINADOR', '', 1, 0, true, 'C', true);
+$pdf->writeHTMLCell(50, 5, $mi, 266, 'EXAMINADOR', '', 1, 0, true, 'C', true);
+$pdf->writeHTMLCell(50, 5, $mi+102, 266, 'EXAMINADOR', '', 1, 0, true, 'C', true);
 
 $pdf->writeHTMLCell(60, 5, $mi+47, 290, '', 'B', 1, 0, true, 'J', true);
 $pdf->writeHTMLCell(60, 5, $mi+47, 297, 'SECRETARIO', 0, 1, 0, true, 'C', true);
@@ -182,6 +180,6 @@ $pdf->Image('img/perfil.png', 171, 8, 32, 41, 'PNG', '', '', true, 150, '', fals
 // ---------------------------------------------------------
 
 //Close and output PDF document
-$pdf->Output('cierre.pdf', 'I');
+$pdf->Output('acta_etp_impar.pdf', 'I');
 
 ?>
