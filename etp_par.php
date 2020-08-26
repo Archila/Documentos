@@ -159,7 +159,7 @@ $pdf->SetFont('helvetica', '', 13);
 
 $pdf->Cell($mi, 30, '', 0, 1, 'C', 0, '', 0); //Espacio en blanco
 $pdf->Cell($mi, $inte, '', 0, 0, 'C', 0, '', 0); //Margen izquierdo de línea
-$pdf->Cell(216-$mi-$md, $inte, 'ACTA NUMERO: '.$acta, 0, 1, 'L', 0, '', 0);
+$pdf->Cell(216-$mi-$md, $inte, 'ACTA NUMERO: '.$acta, 0, 1, 'R', 0, '', 0);
 
 $pdf->writeHTMLCell(216-$mi-$md, 120, $mi, 53, $cuerpo, 0, 1, 0, true, 'J', true);
 
@@ -174,7 +174,7 @@ $pdf->writeHTMLCell(60, 5, $mi+47, 297, 'SECRETARIO', 0, 1, 0, true, 'C', true);
 
 
 // Image example with resizing
-$pdf->Image('img/perfil.png', 171, 8, 32, 41, 'PNG', '', '', true, 150, '', false, false, 0, false, false, false);
+$pdf->Image('img/perfil.png', 40, 8, 32, 41, 'PNG', '', '', true, 150, '', false, false, 0, false, false, false);
 
 
 
